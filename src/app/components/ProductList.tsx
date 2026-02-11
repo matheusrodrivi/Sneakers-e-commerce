@@ -3,6 +3,7 @@
 import { ProductsType } from "../types";
 import Categories from "./Categories";
 import ProductCard from "./ProductCard";
+import Link from "next/link";
 
 const products: ProductsType = [
   {
@@ -91,7 +92,7 @@ const products: ProductsType = [
   },
 ];
 
-const ProductList = () => {
+const ProductList = ({ category }: { category: string }) => {
   return (
     <div className="w-full">
       <Categories />
@@ -100,6 +101,12 @@ const ProductList = () => {
           <ProductCard key={product.id} product={product} />
         ))}
       </div>
+      <Link
+        href={category ? `/products/?category=${category}` : "/products"}
+        className="flex justify-end mt-4 underline text-sm text-gray-500"
+      >
+        View all products
+      </Link>
     </div>
   );
 };
