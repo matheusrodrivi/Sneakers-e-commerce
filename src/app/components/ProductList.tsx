@@ -92,7 +92,7 @@ const products: ProductsType = [
   },
 ];
 
-const ProductList = ({ category }: { category: string }) => {
+const ProductList = ({ category, params }: { category: string, params:"homepage" | "products" }) => {
   return (
     <div className="w-full">
       <Categories />
